@@ -10,9 +10,12 @@
             
             cc(10); // 함수가 다른 함수 호출 가능 (반환 값 무시)
             let re = cc(5); // 반환 값 처리
-            document.write(`<br>resms ${re}`)
+            document.write(`<br>re는 ${re}`)
         
-            
+            dd(7, 8);   // 파라미터 갯수가 일치하지 않아도 수행됨
+            dd(7,8,9);
+            dd(7);
+            dd()
         }
 
         function cc(para){ // 매개변수가 있는 함수
@@ -20,8 +23,19 @@
             document.write(`<br>kk는 ${kk}`)
             return kk;
         }
-
-    </script>
+        function dd(para1, para2){
+            document.write(`<br>dd 함수에서 ${para1} ${para2}`)
+        }
+        // 전역, 지역 변수
+        let a = 100;    // 전역 변수
+        const b =200;  // 전역 상수
+        function func(){
+            let c= 300; // 지역 변수
+            const d= 300; // 지역 상수
+            document.write(`<br>a: ${a} b: ${b}`);
+            document.write(`<br>c: ${c} d: ${d}`);  //
+        }
+</script>
 </head>
 <body>
     <h3>함수(function) : 어떤 특별한 목적의 작업을 수행하도록 설계된 독립적 블록()을 의미</h3>
@@ -64,6 +78,14 @@
 <script>
     bb(); // bb 함수 호출 후 실행
 
+</script>
+<hr>
+<script>
+    document.write('전역, 지역 변수의 이해');
+
+    func();
+    document.write(`<br>a: ${a} b: ${b}`);
+    // document.write(`<br>c: ${c} <br>d: ${d}`); // Uncaught ReferenceError: c is not defined
 </script>
 </body>
 </html>
